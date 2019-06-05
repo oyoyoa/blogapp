@@ -1,0 +1,21 @@
+{% comment %} {% load static %} {% endcomment %}
+<!DOCTYPE html>
+<head>
+    <title>投稿一覧</title>
+</head>
+
+{% comment %} {% block content %} {% endcomment %}
+<body>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field }}
+            {% for error in field.errors %}
+            {{ error }}
+            {% endfor %}
+        {% endfor %}
+        <button type="submit">投稿</button>    
+</body>
+{% comment %} {% endblock content %} {% endcomment %}
+
+</html>

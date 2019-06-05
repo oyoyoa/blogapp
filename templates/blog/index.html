@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+    <title>投稿一覧</title>
+</head>
+<body>
+    {% comment %} {% block content%} {% endcomment %}
+    <h1>投稿一覧ページ</h1>
+    {% comment %} <a href="{% url 'blog:post' %}">投稿</a> {% endcomment %}
+    <div class="article">
+        {% for post in latest_post_list %}
+        <div class="article-contents">
+            <p class="post-content">{{ post.content }}</p>
+            {% if post.image %}
+            <img src="{{ post.image.url }}" height="100">
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% comment %} {% block content %} {% endcomment %}
+</body>
+</html>
